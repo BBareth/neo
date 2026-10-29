@@ -681,7 +681,8 @@ function attachmentsOf(m, type) {
 
 function buildContextText(m) {
   const lines = [];
-  for (const p of attachmentsOf(m, "page")) {
+  for (const a of attachmentsOf(m, "page")) {
+    const p = a.page || {};
     lines.push("[Webpage]\nTitle: " + (p.title || "") + "\nURL: " + (p.url || ""));
     if (p.description) lines.push("Description: " + p.description);
     if (p.text) lines.push("Page content:\n" + p.text);
@@ -731,12 +732,15 @@ function anthropicContent(m) {
 
 function buildApiRequest(settings, convo, stream) {
   const provider = settings.provider === "anthropic" ? "anthropic" : "openai";
+  // Skip assistant turns with no text: the placeholder for the reply being
+  // requested, and replies that failed or were interrupted.
+  const history = convo.messages.filter(
+    (m) => m.role === "user" || (m.role === "assistant" && m.content),
+  );
 
   if (provider === "anthropic") {
     const base = settings.baseUrl.replace(/\/+$/, "").replace(/\/v1$/, "");
-    const messages = convo.messages
-      .filter((m) => m.role !== "system")
-      .map((m) => ({ role: m.role, content: anthropicContent(m) }));
+    const messages = history.map((m) => ({ role: m.role, content: anthropicContent(m) }));
     return {
       url: base + "/v1/messages",
       headers: {
@@ -760,8 +764,7 @@ function buildApiRequest(settings, convo, stream) {
   const base = settings.baseUrl.replace(/\/+$/, "");
   const messages = [];
   if (settings.systemPrompt) messages.push({ role: "system", content: settings.systemPrompt });
-  for (const m of convo.messages) {
-    if (m.role === "system") continue;
+  for (const m of history) {
     messages.push({ role: m.role, content: openaiContent(m) });
   }
   return {
