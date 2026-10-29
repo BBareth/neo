@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Neo — AI Sidebar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An AI chat sidebar on your own API key. Chat with your AI, add open pages, and screenshot the current page to send to the conversation.",
   "browser_specific_settings": {
     "gecko": {
