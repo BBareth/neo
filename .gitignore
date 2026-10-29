@@ -1,0 +1,14 @@
+# Build output
+*.xpi
+*.zip
+web-ext-artifacts/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python (icon generator)
+__pycache__/
+*.pyc

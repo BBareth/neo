@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Neo — AI Sidebar",
+  "version": "1.0.0",
+  "description": "A Leo-style AI sidebar for Firefox. Chat with your AI, add open pages, and screenshot the current page to send to the conversation.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "neo@barex.ch",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["personalCommunications", "websiteActivity", "websiteContent"],
+        "optional": ["personallyIdentifyingInfo", "technicalAndInteraction"]
+      }
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage", "tabs", "scripting", "activeTab", "menus"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Open Neo AI",
+    "default_icon": {
+      "32": "icons/icon-32.png"
+    }
+  },
+  "sidebar_action": {
+    "default_title": "Neo AI",
+    "default_panel": "sidebar/sidebar.html",
+    "default_icon": "icons/icon-32.png",
+    "open_at_install": false
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Open Neo AI (sidebar or popup)"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  }
+}

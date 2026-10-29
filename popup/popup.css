@@ -1,0 +1,13 @@
+/* Popup-specific sizing: a compact panel like Bitwarden, not a full-height
+   docked sidebar. Loaded after sidebar.css so these rules win. */
+
+html,
+body {
+  width: 380px;
+  height: 560px;
+  max-height: 560px;
+}
+
+body {
+  position: relative;
+}
