@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Neo — AI Sidebar",
-  "version": "1.0.0",
-  "description": "A Leo-style AI sidebar for Firefox. Chat with your AI, add open pages, and screenshot the current page to send to the conversation.",
+  "version": "1.0.1",
+  "description": "An AI chat sidebar on your own API key. Chat with your AI, add open pages, and screenshot the current page to send to the conversation.",
   "browser_specific_settings": {
     "gecko": {
       "id": "neo@barex.ch",

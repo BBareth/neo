@@ -743,6 +743,8 @@ function buildApiRequest(settings, convo, stream) {
         "content-type": "application/json",
         "x-api-key": settings.apiKey,
         "anthropic-version": "2023-06-01",
+        // Required by Anthropic for requests that carry a browser Origin.
+        "anthropic-dangerous-direct-browser-access": "true",
       },
       body: JSON.stringify({
         model: settings.model,

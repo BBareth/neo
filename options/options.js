@@ -188,6 +188,8 @@ function buildTestRequest(s) {
         "content-type": "application/json",
         "x-api-key": s.apiKey,
         "anthropic-version": "2023-06-01",
+        // Required by Anthropic for requests that carry a browser Origin.
+        "anthropic-dangerous-direct-browser-access": "true",
       },
       body: JSON.stringify({
         model: s.model,
