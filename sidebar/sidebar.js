@@ -365,7 +365,7 @@ function buildPageCard(page) {
   url.className = "url";
   url.textContent = page.url || "";
   meta.append(title, url);
-  a.append(fav, meta);
+  a.append(meta);
   return a;
 }
 
