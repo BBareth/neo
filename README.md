@@ -17,6 +17,11 @@
   <img alt="No build step" src="https://img.shields.io/badge/build-none-a855f7">
 </p>
 
+<p align="center">
+  <img src="./docs/screenshots/neo-page-chat.jpg" width="900"
+       alt="Neo docked on the right of Firefox, answering a question about the attached GitHub tab">
+</p>
+
 ---
 
 Press `Ctrl+Shift+L`, ask a question, get a streamed answer in a panel on the
@@ -42,6 +47,16 @@ paste in, and keeps everything else on your machine.
 - **Small and dependency-free.** Plain HTML, CSS and JavaScript — about 1,300
   lines, no framework, no bundler, nothing minified. What's in the repo is
   exactly what ships.
+
+## Screenshots
+
+| | | |
+| --- | --- | --- |
+| ![A screenshot of the current tab attached to the chat, with feedback on the page layout](./docs/screenshots/neo-screenshot-chat.jpg) | ![The 📄 tab picker listing open tabs](./docs/screenshots/neo-tab-picker.jpg) | ![The conversation list with two chats](./docs/screenshots/neo-conversations.jpg) |
+| **📷 Screenshot** the visible page and ask about it | **📄 Attach** any open tab | **☰ Conversations**, stored locally in Firefox |
+
+<sub>Captured in Firefox 159 against a local mock of an OpenAI-compatible
+endpoint, so the replies shown are scripted.</sub>
 
 > [!IMPORTANT]
 > Anything you send — including pages and screenshots you attach — goes to
@@ -92,6 +107,11 @@ Temporary add-ons are removed when Firefox restarts.
 
 Screenshots need a vision-capable model, such as `gpt-4o` or any current
 Claude model.
+
+<p align="center">
+  <img src="./docs/screenshots/neo-settings.jpg" width="420"
+       alt="The Neo settings page filled in for a local Ollama model">
+</p>
 
 ## Usage
 
